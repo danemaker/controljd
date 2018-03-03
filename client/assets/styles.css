@@ -1,0 +1,32 @@
+.activado{
+color:#fff !important;
+text-decoration:none !important;
+background:transparent !important;
+}
+
+.articulo_imagen{
+	/*width: 100%;*/
+	height: 50px;
+	margin: 0px auto;
+	display: block;
+}
+
+.imagen_relleno{
+	background: #ccc;
+	margin: 0px auto;
+	width: 10%;
+	height: 20px;
+	
+}
+
+.imagen_no_disponible{
+	text-align: center;
+	margin-top: 5%;
+
+}
+
+
+@media print {
+.impre {display:none}
+}
+
