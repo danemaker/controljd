@@ -10,6 +10,7 @@ var multipart=require('connect-multiparty');
 var md_upload=multipart({uploadDir: './uploads/usuarios'});
 
 api.get('/probando-controlador' ,md_auth.ensureAuth, UsuarioController.pruebas);
+api.delete('/remove/:id',md_auth.ensureAuth, UsuarioController.deleteUsuario);
 api.post('/register', UsuarioController.saveUsuario);
 api.post('/login', UsuarioController.loginUsuario);
 api.post('/update-usuario/:id',md_auth.ensureAuth, UsuarioController.updateUsuario);

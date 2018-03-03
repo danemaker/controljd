@@ -20,7 +20,7 @@ function saveUsuario(req, res){
     usuario.name=params.name;
     usuario.surname=params.surname;
     usuario.email=params.email;
-    usuario.rol='ROLE_USER';
+    usuario.rol='USUARIO';
     usuario.image= params.image;
 
     if(params.password){
@@ -80,6 +80,22 @@ function loginUsuario(req, res){
 
 }
 
+function deleteUsuario(req, res){
+    var articuloId = req.params.id;
+
+    Usuario.findByIdAndRemove(articuloId, (err, usuarioRemoved)=>{
+        if(err){
+            res.status(500).send({message: 'Error en el servidor'});
+        }else{
+            if(!usuarioRemoved){
+                res.status(404).send({message: 'No de ha borrado el usuario'});
+            }else{
+                res.status(200).send({usuario: usuarioRemoved});
+            }
+        }
+    });
+}
+
 function updateUsuario(req, res){
     var usuarioId = req.params.id;
     var update = req.body;
@@ -103,7 +119,7 @@ function updateUsuario(req, res){
 	usuario.name=params.name;
     usuario.surname=params.surname;
     usuario.email=params.email;
-    usuario.rol='ROLE_USER';
+    usuario.rol= params.rol;
     usuario.image= params.image;
 
     if(params.password){
@@ -174,6 +190,7 @@ module.exports={
     loginUsuario,
     updateUsuario,
     uploadImage,
-    getImageFile
+    getImageFile,
+	deleteUsuario
 };
 
