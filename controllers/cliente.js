@@ -42,12 +42,13 @@ function getClientes(req, res){
 
 function saveCliente(req, res){
     var cliente = new Cliente();
-
     var params = req.body;
+	
+	
+	cliente.dni = params.dni;
     cliente.name = params.name;
     cliente.surname = params.surname;
-    cliente.dni = params.dni;
-    cliente.tel=params.tel;
+    cliente.tlf = params.tlf;
 
     cliente.save((err, clienteStored)=>{
         if(err){

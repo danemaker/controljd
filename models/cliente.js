@@ -7,7 +7,7 @@ var ClienteSchema=Schema({
 	dni : String,
     name: String,
 	surname: String,
-    tlf: String,
+    tlf: String
 
 })
 
